@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import marked from 'marked'
+import InputMark from './component/inputmark'
+import OutputMark from './component/outputmark'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            _markdown:null
+        }
+        this.markdown = this.markdown.bind(this)
+    }
+    markdown(_mark){
+        this.setState({
+            _markdown : marked(_mark)
+        })
+    }
+    render(){
+        return(
+            <div>
+                <InputMark in={this.markdown}/>
+                <OutputMark _markdown={this.state._markdown}/>   
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App
