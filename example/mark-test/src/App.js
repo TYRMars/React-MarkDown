@@ -1,5 +1,6 @@
 import React from 'react'
-import Markd from 'Markd'
+import ReactDOM from 'react-dom';
+import Markd from './Markd'
 
 class App extends React.Component{
   constructor(props){
